@@ -1,0 +1,57 @@
+{
+  "users": [
+    {
+      "name": "kshitiz1",
+      "tasks": [
+        {
+          "taskname": "task1",
+          "project": "project1",
+          "start_time": 1573833826438,
+          "end_time": 1573837426438
+        },
+        {
+          "taskname": "task1",
+          "project": "project1",
+          "start_time": 1573750099000,
+          "end_time": 1573753699000
+        }
+      ]
+    },
+    {
+      "name": "kshitiz23",
+      "tasks": []
+    },
+    {
+      "name": "kshitiz2",
+      "tasks": []
+    },
+    {
+      "name": "kshitiz",
+      "tasks": [
+        {
+          "taskname": "skdsdjskdj",
+          "project": "project1",
+          "start_time": 1573838566862,
+          "end_time": 1573842106000
+        },
+        {
+          "taskname": "dsdsdsd",
+          "project": "project1",
+          "start_time": 1573665774000,
+          "end_time": 1573755774000
+        }
+      ]
+    },
+    {
+      "name": "sjdksjdksdjks",
+      "tasks": [
+        {
+          "taskname": "dsdsdsdsd",
+          "project": "project1",
+          "start_time": 1573579530000,
+          "end_time": 1573755930000
+        }
+      ]
+    }
+  ]
+}
