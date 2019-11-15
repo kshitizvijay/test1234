@@ -72,8 +72,8 @@ server
     const currentRoute =
     Routes.find(route => matchPath(req.path, route)) || {};
     let data = {};
-    if(currentRoute && currentRoute.component && currentRoute.component.getData){
-       data = await currentRoute.component.getData(req.query.username);
+    if(currentRoute && currentRoute.getData){
+       data = await currentRoute.getData(req.query.username);
     }
     
      const context = {data};

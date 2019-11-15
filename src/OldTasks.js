@@ -8,21 +8,32 @@ import axios from 'axios';
 class OldTasks extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      timerArray: []
-    };
+    // this.state = {
+    //   timerArray: []
+    // };
+    this.state = {};
+    if (props.staticContext && props.staticContext.data) {
+      this.state = {
+        taskData: props.staticContext.data,
+      };
+    }
+    this.state.timerArray = [];
   }
-  static getData(username){
-    return axios.get(`http://localhost:3000/get?username=${username}`).then(response=>response.data)
-  }
+  // static getData(username){
+  //   return axios.get(`http://localhost:3000/get?username=${username}`).then(response=>response.data)
+  // }
   async componentDidMount() {
     var username = localStorage.getItem("username");
 
     if (username && username.length > 0) {
-      var responsePromise = await fetch(`/get?username=${username}`);
-      var data = await responsePromise.json();
+      // var responsePromise = await fetch(`/get?username=${username}`);
+      // var data = await responsePromise.json();
+      // this.setState({
+      //   taskData: data,
+      //   username
+      // });
       this.setState({
-        taskData: data,
+        // taskData: data,
         username
       });
     } else {
@@ -30,14 +41,15 @@ class OldTasks extends React.Component {
     }
   }
   render() {
-    let taskData = typeof window === 'object' ? window.state : {};
-    // console.log(this.props.staticContext.data)
-    if(this.props.staticContext && this.props.staticContext.data){
-      taskData =  this.props.staticContext.data;
-    }
-    if(this.state.taskData){
-      taskData=this.state.taskData;
-    }
+    const {taskData} = this.state;
+    // let taskData = typeof window === 'object' ? window.state : {};
+    // // console.log(this.props.staticContext.data)
+    // if(this.props.staticContext && this.props.staticContext.data){
+    //   taskData =  this.props.staticContext.data;
+    // }
+    // if(this.state.taskData){
+    //   taskData=this.state.taskData;
+    // }
     return (
       <table class="table table-dark">
         <thead>

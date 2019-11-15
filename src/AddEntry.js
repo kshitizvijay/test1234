@@ -17,17 +17,21 @@ class Home extends React.Component {
       timerArray: []
     };
   }
-  static getData(username){
-    return axios.get(`http://localhost:3000/get?username=${username}`).then(response=>response.data)
-  }
+  // static getData(username){
+  //   return axios.get(`http://localhost:3000/get?username=${username}`).then(response=>response.data)
+  // }
   async componentDidMount() {
     var username = localStorage.getItem("username");
 
     if (username && username.length > 0) {
-      var responsePromise = await fetch(`/get?username=${username}`);
-      var data = await responsePromise.json();
+      // var responsePromise = await fetch(`/get?username=${username}`);
+      // var data = await responsePromise.json();
+      // this.setState({
+      //   taskData: data,
+      //   username
+      // });
       this.setState({
-        taskData: data,
+        // taskData: data,
         username
       });
     } else {

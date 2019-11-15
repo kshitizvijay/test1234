@@ -1,56 +1,65 @@
 import React from "react";
 import Route from "react-router-dom/Route";
-import Routes from './Routes';
+import Routes from "./Routes";
 import Switch from "react-router-dom/Switch";
 import Home from "./Home";
 import AddEntry from "./AddEntry";
 import OldTasks from "./OldTasks";
 // import "./App.css";
 
-const App = (props) => {
-  return <React.Fragment>
-    <h1>Sample Task App</h1>
-    <NavBar />
-    <div class="container">
-    <Switch>
-        {Routes.map(item=>{
-          var MyComp = item.component;
-          return <Route path={item.path} component={MyComp} key={item.path}/>
-        })}
-      </Switch>
-      {/* <Switch>
+const App = ({data}) => {
+  return (
+    <React.Fragment>
+      <h1>Sample Task App</h1>
+      <NavBar />
+      <div class="container">
+        <Switch>
+          {Routes.map(item => {
+            var MyComp = item.component;
+            return (
+              <Route
+                path={item.path}
+                // component={MyComp}
+                render={props => <MyComp {...props} staticContext={{data}}/>}
+                key={item.path}
+              />
+            );
+          })}
+        </Switch>
+        {/* <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/app" component={AddEntry} />
         <Route exact path="/old" component={OldTasks}/>
       </Switch> */}
-    </div>
-  </React.Fragment>
-}
+      </div>
+    </React.Fragment>
+  );
+};
 
 class NavBar extends React.Component {
-  constructor(){
+  constructor() {
     super();
     this.state = {};
   }
-  componentDidMount(){
+  componentDidMount() {
     var username = localStorage.getItem("username");
     this.setState({
       username
-    })
+    });
   }
-  render(){
+  render() {
     return (
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
               <a class="nav-link" href="/">
-               Register
+                Register
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href={`/app?username=${this.state.username}`}>
-                Add tasks 
+                Add tasks
               </a>
             </li>
             <li class="nav-item">
@@ -58,7 +67,6 @@ class NavBar extends React.Component {
                 Old tasks
               </a>
             </li>
-           
           </ul>
         </div>
       </nav>
